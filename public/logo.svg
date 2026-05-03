@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80" width="280" height="80">
+  <defs>
+    <linearGradient id="hexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e5a8a"/>
+      <stop offset="50%" stop-color="#1a8fd1"/>
+      <stop offset="100%" stop-color="#2ec866"/>
+    </linearGradient>
+    <linearGradient id="hexGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d4f7a"/>
+      <stop offset="100%" stop-color="#1a7bbf"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Hexagon shape -->
+  <g transform="translate(8, 8)">
+    <!-- Outer hexagon -->
+    <path d="M32 2 L58 17 L58 47 L32 62 L6 47 L6 17 Z"
+          fill="url(#hexGrad)" />
+
+    <!-- Inner hexagon ring cutout -->
+    <path d="M32 10 L50 20.5 L50 43.5 L32 54 L14 43.5 L14 20.5 Z"
+          fill="none" stroke="white" stroke-width="2.5" opacity="0.3"/>
+
+    <!-- Clock circle -->
+    <circle cx="32" cy="32" r="14" fill="none" stroke="white" stroke-width="2.5"/>
+
+    <!-- Clock hands -->
+    <line x1="32" y1="32" x2="32" y2="22" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="32" y1="32" x2="40" y2="36" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Circular arrows around clock -->
+    <path d="M32 16 A16 16 0 0 1 46 28" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"/>
+    <path d="M32 48 A16 16 0 0 1 18 36" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Arrow heads -->
+    <polygon points="46,22 50,30 42,28" fill="white"/>
+    <polygon points="18,42 14,34 22,36" fill="white"/>
+
+    <!-- Checkmark -->
+    <path d="M24 33 L29 38 L42 26" fill="none" stroke="#2ec866" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Text: "time" -->
+  <text x="82" y="52"
+        font-family="Montserrat, Arial, sans-serif"
+        font-weight="700"
+        font-size="32"
+        fill="#0d3d5e"
+        letter-spacing="-0.5">time</text>
+
+  <!-- Text: "lab" in lighter weight -->
+  <text x="166" y="52"
+        font-family="Montserrat, Arial, sans-serif"
+        font-weight="400"
+        font-size="32"
+        fill="#0d3d5e"
+        letter-spacing="-0.5">lab</text>
+
+  <!-- Checkmark accent on the "b" -->
+  <path d="M207 28 L212 33 L220 23"
+        fill="none"
+        stroke="#2ec866"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+</svg>

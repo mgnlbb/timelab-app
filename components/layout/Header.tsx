@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { User, Settings, LogOut, ChevronDown } from 'lucide-react'
+import Image from 'next/image'
 
 
 export default function Header() {
@@ -66,7 +67,7 @@ export default function Header() {
           onClick={() => router.push('/dashboard')}
           className="text-lg font-semibold text-blue-600 hover:text-blue-700 transition-colors"
         >
-          TimeLab
+          <Image src="/logo.svg" alt="TimeLab" width={100} height={28} />
         </button>
 
         {/* Kanan — avatar + nama + dropdown */}

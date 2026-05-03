@@ -2,9 +2,17 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const Metadata = {
+export const metadata: Metadata = {
   title: 'TimeLab — Timesheet Management',
-  description: 'Aplikasi manajemen timesheet bulanan',
+  description: 'Pengisian Timesheet Bulanan Mudah',
+  icons: {
+    icon: [
+      { url: '/favicon-16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon.svg',    type: 'image/svg+xml' },
+    ],
+    apple: '/icon-512.png',
+  },
 }
 
 const geistSans = Geist({
@@ -17,10 +25,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Time Lab",
-  description: "Generate Timesheet",
-};
+// export const metadata: Metadata = {
+//   title: "Time Lab",
+//   description: "Generate Timesheet",
+// };
 
 export default function RootLayout({
   children,
