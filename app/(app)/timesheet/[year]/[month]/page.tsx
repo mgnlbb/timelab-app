@@ -19,7 +19,9 @@ export default async function TimesheetPage({
         
         <a  href={`/api/pdf?year=${year}&month=${month}`}
           target="_blank"
-          className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
+          className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 font-semibold transition-all disabled:opacity-50 hover:opacity-90"
+          //className="w-full text-white rounded-lg py-2.5 text-sm font-semibold transition-all disabled:opacity-50 hover:opacity-90"
+              style={{ background: "linear-gradient(90deg, #0d3d5e, #1a8fd1)" }}
         >
           Export PDF
         </a>

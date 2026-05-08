@@ -153,7 +153,7 @@ export default function TimesheetTable({ year, month }: TimesheetTableProps) {
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-gray-50 border-b border-gray-200">
-                {['Day', 'Date', 'Start Time', 'End Time', 'Activity', 'Remarks'].map(h => (
+                {['Day', 'Date', 'Activity', 'Start Time', 'End Time',  'Remarks'].map(h => (
                   <th key={h} className="px-3 py-3 text-left text-xs font-semibold text-black uppercase tracking-wide whitespace-nowrap">
                     {h}
                   </th>

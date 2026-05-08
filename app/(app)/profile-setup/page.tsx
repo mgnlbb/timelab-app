@@ -165,7 +165,7 @@ async function handleSubmit(e: React.FormEvent) {
         <div className="bg-white border border-gray-200 rounded-2xl p-6">
           <div className="flex items-center gap-2 mb-5">
             <div className="w-7 h-7 rounded-lg bg-blue-100 flex items-center justify-center">
-              <User size={14} className="text-blue-600" />
+              <User size={14} className="text-[#1a8fd1]" />
             </div>
             <h2 className="text-sm font-semibold text-gray-800">Informasi Profil</h2>
           </div>
@@ -183,7 +183,7 @@ async function handleSubmit(e: React.FormEvent) {
                   onChange={e => handleChange(key, e.target.value)}
                   placeholder={placeholder}
                   required={key === 'full_name'}
-                  className="w-full border border-gray-200 text-gray-500 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                  className="w-full border border-gray-200 text-gray-500 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a8fd1] transition"
                 />
               </div>
             ))}
@@ -262,7 +262,7 @@ async function handleSubmit(e: React.FormEvent) {
                   value={form[key]}
                   onChange={e => handleChange(key, e.target.value)}
                   placeholder={placeholder}
-                  className="w-full border border-gray-200 rounded-lg px-3 text-gray-500 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                  className="w-full border border-gray-200 rounded-lg px-3 text-gray-500 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a8fd1] transition"
                 />
               </div>
             ))}
@@ -281,7 +281,7 @@ async function handleSubmit(e: React.FormEvent) {
           <button
             type="submit"
             disabled={loading || saved}
-            className="flex-1 bg-blue-600 text-white rounded-lg py-2 text-sm font-medium hover:bg-blue-700 transition-colors disabled:opacity-50"
+            className="flex-1 bg-[#1a8fd1] text-white rounded-lg py-2 text-sm font-medium hover:bg-[#0d3d5e] transition-colors disabled:opacity-50"
           >
             {saved ? '✓ Tersimpan!' : loading ? 'Menyimpan...' : 'Simpan Profil'}
           </button>

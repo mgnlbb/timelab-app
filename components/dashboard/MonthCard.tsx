@@ -10,60 +10,64 @@ type MonthCardProps = {
   isFuture: boolean
 }
 
-const QUARTER_COLORS = [
-  'border-blue-200 bg-blue-50 hover:border-blue-400',
-  'border-emerald-200 bg-emerald-50 hover:border-emerald-400',
-  'border-amber-200 bg-amber-50 hover:border-amber-400',
-  'border-purple-200 bg-purple-50 hover:border-purple-400',
-]
-
-const QUARTER_BADGE = [
-  'bg-blue-100 text-blue-700',
-  'bg-emerald-100 text-emerald-700',
-  'bg-amber-100 text-amber-700',
-  'bg-purple-100 text-purple-700',
+const QUARTER_STYLES = [
+  { bg: '#dbeeff', text: '#0d3d5e', badge: '#1a8fd1', badgeText: '#fff' },
+  { bg: '#d4f5e4', text: '#0d5e30', badge: '#2ec866', badgeText: '#fff' },
+  { bg: '#cceeff', text: '#0a4a6e', badge: '#4db8f0', badgeText: '#fff' },
+  { bg: '#d0e8f5', text: '#0d3d5e', badge: '#0d3d5e', badgeText: '#fff' },
 ]
 
 export default function MonthCard({
-  monthName,
-  monthNum,
-  year,
-  isCurrentMonth,
-  isFuture,
+  monthName, monthNum, year, isCurrentMonth, isFuture,
 }: MonthCardProps) {
   const router = useRouter()
   const quarter = Math.floor((monthNum - 1) / 3)
+  const style = QUARTER_STYLES[quarter]
 
   return (
     <button
-      onClick={() => router.push(`/timesheet/${year}/${monthNum}`)}
+      onClick={() => !isFuture && router.push(`/timesheet/${year}/${monthNum}`)}
+      disabled={isFuture}
       className={`
-        relative border-2 rounded-2xl p-5 text-left transition-all duration-150 group w-full
-        ${QUARTER_COLORS[quarter]}
-        ${isCurrentMonth ? 'ring-2 ring-blue-500 ring-offset-1' : ''}
-        ${isFuture ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-md hover:-translate-y-0.5'}
+        relative rounded-2xl p-5 text-left w-full
+        transition-all duration-150 group
+        ${isFuture
+          ? 'opacity-40 cursor-not-allowed'
+          : 'hover:shadow-lg hover:-translate-y-1 cursor-pointer'
+        }
+        ${isCurrentMonth ? 'ring-2 ring-offset-2 ring-[#1a8fd1]' : ''}
       `}
+      style={{ backgroundColor: style.bg }}
     >
       {/* Badge kuartal */}
-      <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded-full ${QUARTER_BADGE[quarter]}`}>
+      <span
+        className="text-[10px] font-bold px-2 py-0.5 rounded-full"
+        style={{ backgroundColor: style.badge, color: style.badgeText }}
+      >
         Q{quarter + 1}
       </span>
 
-      {/* Nama bulan & tahun */}
-      <div className="mt-2 text-base font-semibold text-gray-800">{monthName}</div>
-      <div className="text-xs text-gray-400">{year}</div>
+      {/* Nama bulan */}
+      <div className="mt-3 text-base font-bold" style={{ color: style.text }}>
+        {monthName}
+      </div>
+      <div className="text-xs mt-0.5" style={{ color: style.text, opacity: 0.6 }}>
+        {year}
+      </div>
 
       {/* Badge bulan ini */}
       {isCurrentMonth && (
-        <span className="absolute top-3 right-3 text-[10px] bg-blue-600 text-white px-2 py-0.5 rounded-full font-medium">
+        <span className="absolute top-3 right-3 text-[10px] text-white px-2 py-0.5 rounded-full font-semibold"
+          style={{ backgroundColor: '#1a8fd1' }}>
           Bulan Ini
         </span>
       )}
 
       {/* Icon pojok kanan bawah */}
       <FileText
-        size={16}
-        className="absolute bottom-4 right-4 text-gray-300 group-hover:text-gray-400 transition-colors"
+        size={15}
+        className="absolute bottom-4 right-4 transition-opacity"
+        style={{ color: style.text, opacity: isFuture ? 0.2 : 0.25 }}
       />
     </button>
   )

@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { User, Settings, LogOut, ChevronDown } from 'lucide-react'
-import Image from 'next/image'
+//import Image from 'next/image'
 
 
 export default function Header() {
@@ -59,15 +59,15 @@ export default function Header() {
     .toUpperCase()
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
+    <header className="sticky top-0 z-50 bg-white border-b-2 shadow-sm" style={{ borderColor: '#1a8fd1' }}>
       <div className="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
         
         {/* Kiri — nama aplikasi */}
         <button
           onClick={() => router.push('/dashboard')}
-          className="text-lg font-semibold text-blue-600 hover:text-blue-700 transition-colors"
+          className="hover:opacity-80 transition-opacity"
         >
-          <Image src="/logo.svg" alt="TimeLab" width={100} height={28} />
+          <img src="/logo.png" alt="TimeLab" width={140} height={40} />
         </button>
 
         {/* Kanan — avatar + nama + dropdown */}
@@ -77,7 +77,7 @@ export default function Header() {
             className="flex items-center gap-2 hover:bg-gray-100 rounded-lg px-2 py-1.5 transition-colors"
           >
             {/* Avatar circle dengan inisial */}
-            <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-xs font-semibold">
+            <div className="w-8 h-8 rounded-full bg-[#1a8fd1] flex items-center justify-center text-white text-xs font-semibold">
               {initials || <User size={14} />}
             </div>
             {fullName
